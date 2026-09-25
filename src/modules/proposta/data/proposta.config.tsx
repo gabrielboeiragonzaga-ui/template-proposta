@@ -1,293 +1,349 @@
 import {
-  Target,
+  Compass,
+  Palette,
+  Crosshair,
+  Megaphone,
+  Heart,
+  Search,
+  Layers,
+  MessageSquareQuote,
+  PenTool,
+  Tag,
+  BookOpen,
+  AlertTriangle,
   Lightbulb,
-  FileText,
-  HelpCircle,
-  TrendingUp,
-  BarChart3,
-  Link2,
-  ArrowRight,
-  Clock,
-  GraduationCap,
-  Video,
-  Wrench,
+  Check,
+  ArrowDown,
 } from "lucide-react";
-import logo from "@/assets/logo-growthhub.png";
+import logo from "@/assets/logo-gabriel-gonzaga.png";
 import type { PropostaConfig } from "../types";
 
 /**
  * FONTE ÚNICA DE CONTEÚDO DA PROPOSTA.
  *
- * Proposta comercial: Rainoah (contato Julio), 4 agentes de IA para o comercial.
- * Conteúdo migrado de uma proposta de referência já existente, mantendo os
- * entregáveis e adaptando à identidade visual padrão do template (Method GrowthHub).
+ * Proposta institucional de Gabriel Gonzaga (consultoria de marca e Branding).
+ * Conteúdo e paleta migrados da Apresentação Institucional 2026: Método N.A.V.E.,
+ * processo em 8 etapas, frentes do Branding e tabela de serviços "a partir de".
  */
 
-const DocMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
-      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Registro automático
-      </p>
-    </div>
-    <div className="grid grid-cols-2 gap-4 items-stretch">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col justify-center">
-        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/60 mb-2">Call recebida</p>
-        <p className="text-xs text-foreground/70 leading-relaxed">
-          &quot;Distribuidora Sul pediu desconto pra pedido grande da linha Reflex, falou que fecha até sexta&quot;
-        </p>
-      </div>
-      <div className="flex items-center justify-center">
-        <ArrowRight className="w-5 h-5 text-primary/60" />
-      </div>
-    </div>
-    <div className="mt-4 rounded-xl bg-primary/10 border border-primary/30 p-4">
-      <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Registro estruturado</p>
-      <div className="space-y-1.5 text-[11px] text-foreground/85">
-        <p><span className="text-muted-foreground">Conta:</span> Distribuidora Sul</p>
-        <p><span className="text-muted-foreground">Interesse:</span> Linha Reflex, pedido grande</p>
-        <p><span className="text-muted-foreground">Próximo passo:</span> Enviar tabela de desconto até 6ª</p>
-      </div>
-    </div>
-  </div>
+const WINDOW_DOTS = (
+  <>
+    <div className="w-2 h-2 rounded-full bg-white/20" />
+    <div className="w-2 h-2 rounded-full bg-white/20" />
+    <div className="w-2 h-2 rounded-full bg-primary/80" />
+  </>
 );
 
-const AuxilioMockup = () => (
+const NaveMockup = () => (
   <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
     <div className="flex items-center gap-2 mb-6">
-      <div className="w-2 h-2 rounded-full bg-red-500/80" />
-      <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-      <div className="w-2 h-2 rounded-full bg-green-500/80" />
+      {WINDOW_DOTS}
       <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Copiloto Rainoah
+        Método N.A.V.E.
       </p>
     </div>
-    <div className="space-y-3">
-      <div className="rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 p-3 max-w-[85%]">
-        <p className="text-xs text-foreground/75">Qual a diferença entre a Reflex e a Bota Trekking pro lojista?</p>
-      </div>
-      <div className="rounded-2xl rounded-tr-sm bg-primary/10 border border-primary/30 p-3 max-w-[90%] ml-auto">
-        <p className="text-xs text-foreground/90 leading-relaxed">
-          Reflex é eletroestimulador, indicado pra dor localizada. Bota Trekking é compressão pra pernas cansadas.
-          Faixa de desconto pra lojista: até 12% em pedido fechado.
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-const ScoreMockup = () => (
-  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
-    <div className="flex items-center gap-2 mb-6">
-      <TrendingUp className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Score de negociação
-      </p>
-    </div>
-    <div className="space-y-3">
+    <div className="grid grid-cols-2 gap-3">
       {[
-        { conta: "Distribuidora Sul", nota: "92", status: "Quente", cor: "text-primary" },
-        { conta: "Ortopedia Center", nota: "68", status: "Andamento", cor: "text-foreground/70" },
-        { conta: "Loja Vitta", nota: "24", status: "Risco", cor: "text-destructive/80" },
-      ].map((linha) => (
-        <div key={linha.conta} className="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-2.5">
-          <span className="text-xs text-foreground/80">{linha.conta}</span>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-foreground">{linha.nota}</span>
-            <span className={`text-[9px] font-bold uppercase tracking-widest ${linha.cor}`}>{linha.status}</span>
+        { letra: "N", nome: "Negócio", itens: ["Análise de contexto", "Metas curto/longo prazo"] },
+        { letra: "A", nome: "Audiência", itens: ["Segmentos de mercado", "Personas"] },
+        { letra: "V", nome: "Valor", itens: ["Proposta de valor", "Auditoria da concorrência"] },
+        { letra: "E", nome: "Estória", itens: ["História de criação", "Propósito"] },
+      ].map((bloco) => (
+        <div key={bloco.letra} className="rounded-xl bg-white/5 border border-white/10 p-3 sm:p-4">
+          <div className="flex items-baseline gap-2 mb-2">
+            <span className="text-lg font-heading font-bold text-primary">{bloco.letra}</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/85">{bloco.nome}</span>
+          </div>
+          <div className="space-y-1">
+            {bloco.itens.map((item) => (
+              <p key={item} className="text-[10px] text-muted-foreground leading-snug">
+                {item}
+              </p>
+            ))}
           </div>
         </div>
       ))}
     </div>
+    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <Search className="w-3 h-3" />
+      <span>Entrevistas · Workshop · Pesquisas</span>
+    </div>
   </div>
 );
 
-const RelatorioMockup = () => (
+const PlataformaMockup = () => (
   <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
     <div className="flex items-center gap-2 mb-6">
-      <BarChart3 className="w-4 h-4 text-primary/70" />
+      <Layers className="w-4 h-4 text-primary/70" />
       <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Resumo de hoje
+        Plataforma de marca
       </p>
     </div>
-    <div className="grid grid-cols-3 gap-3 mb-4">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">14</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Avançaram</p>
-      </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-        <p className="text-lg font-bold text-foreground">5</p>
-        <p className="text-[8px] uppercase tracking-widest text-muted-foreground mt-1">Travaram</p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-3 text-center">
-        <p className="text-lg font-bold text-primary">3</p>
-        <p className="text-[8px] uppercase tracking-widest text-primary/80 mt-1">Críticas</p>
+    <div className="flex justify-center mb-3">
+      <div className="rounded-xl bg-primary/10 border border-primary/30 px-4 py-2.5 text-center w-1/2">
+        <p className="text-[9px] font-bold uppercase tracking-widest text-primary">Promessa</p>
+        <p className="text-[9px] text-foreground/70 mt-1 leading-snug">A visão de mundo em forma de convite</p>
       </div>
     </div>
-    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Clock className="w-3 h-3" />
-      <span>Enviado às 8h todo dia</span>
+    <div className="grid grid-cols-3 gap-2 sm:gap-3">
+      {[
+        { campo: "Propósito", texto: "A razão de existir" },
+        { campo: "Posicionamento", texto: "Como a marca é vista" },
+        { campo: "Diferencial", texto: "O que faz melhor" },
+        { campo: "Valores", texto: "O que guia decisões" },
+        { campo: "Personalidade", texto: "A marca como pessoa" },
+        { campo: "Público", texto: "Pra quem ela existe" },
+      ].map((item) => (
+        <div key={item.campo} className="rounded-xl bg-white/5 border border-white/10 p-2.5 text-center">
+          <p className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-foreground/85">{item.campo}</p>
+          <p className="text-[8px] sm:text-[9px] text-muted-foreground mt-1 leading-snug">{item.texto}</p>
+        </div>
+      ))}
+    </div>
+    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <Check className="w-3 h-3" />
+      <span>Preenchida ao fim do diagnóstico</span>
     </div>
   </div>
 );
 
-const TreinamentoMockup = () => (
+const VerbalMockup = () => (
   <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
     <div className="flex items-center gap-2 mb-6">
-      <GraduationCap className="w-4 h-4 text-primary/70" />
-      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Agenda de treinamento
+      {WINDOW_DOTS}
+      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Key Word
       </p>
     </div>
     <div className="space-y-3">
       <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Treinamento 01 · Sistema</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Mês 2</span>
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/70 mb-1.5">Eixo narrativo</p>
+        <p className="text-xs text-foreground/85 leading-relaxed">Promessa, mensagem central e manifesto</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground/70 mb-2">Tom de voz</p>
+        <div className="grid grid-cols-2 gap-2 text-[10px]">
+          <p className="text-foreground/85"><span className="text-primary font-bold">É</span> · direto, próximo</p>
+          <p className="text-muted-foreground"><span className="font-bold">Não é</span> · frio, genérico</p>
         </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Painel de gestão, score de negociação e relatório gerencial
-        </p>
       </div>
       <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Treinamento 02 · Agentes de IA</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Pós entrega</span>
+        <p className="text-[9px] uppercase tracking-widest text-primary mb-2">Território lexical</p>
+        <div className="flex flex-wrap gap-1.5">
+          {["slogan", "expressões", "storytelling", "vocabulário próprio"].map((tag) => (
+            <span key={tag} className="text-[9px] rounded-full border border-primary/30 px-2 py-0.5 text-foreground/85">
+              {tag}
+            </span>
+          ))}
         </div>
-        <p className="text-[11px] text-foreground/80 leading-relaxed">
-          Como usar o copiloto comercial e o painel de gestão no dia a dia
-        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const VisualMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      {WINDOW_DOTS}
+      <p className="ml-3 text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Key Visual
+      </p>
+    </div>
+    <div className="grid grid-cols-2 gap-3">
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col items-center justify-center gap-2">
+        <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
+          <span className="text-sm font-heading font-bold text-foreground">M</span>
+        </div>
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground">Logo e símbolo</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col items-center justify-center gap-2">
+        <p className="text-3xl font-heading font-bold text-foreground leading-none">Aa</p>
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground">Tipografia</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4 flex flex-col items-center justify-center gap-2">
+        <div className="flex gap-1.5">
+          <div className="w-5 h-5 rounded-full bg-foreground" />
+          <div className="w-5 h-5 rounded-full bg-muted-foreground" />
+          <div className="w-5 h-5 rounded-full bg-primary" />
+        </div>
+        <p className="text-[9px] uppercase tracking-widest text-muted-foreground">Cores</p>
+      </div>
+      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4 flex flex-col items-center justify-center gap-2">
+        <div className="flex gap-1 items-end h-5">
+          <div className="w-1.5 h-2 bg-primary/60 rounded-sm" />
+          <div className="w-1.5 h-4 bg-primary/80 rounded-sm" />
+          <div className="w-1.5 h-5 bg-primary rounded-sm" />
+          <div className="w-1.5 h-3 bg-primary/70 rounded-sm" />
+        </div>
+        <p className="text-[9px] uppercase tracking-widest text-primary">Grafismos</p>
       </div>
     </div>
     <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
-      <Video className="w-3 h-3" />
-      <span>Sessões gravadas pro time rever</span>
+      <PenTool className="w-3 h-3" />
+      <span>Ícones · ilustração · fotografia</span>
     </div>
   </div>
 );
 
-const ManutencaoMockup = () => (
+const NamingMockup = () => (
   <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
     <div className="flex items-center gap-2 mb-6">
-      <Wrench className="w-4 h-4 text-primary/70" />
+      <Tag className="w-4 h-4 text-primary/70" />
       <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
-        Changelog do mês
+        Filtro de nomes
       </p>
     </div>
     <div className="space-y-3">
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Feedback do vendedor</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Aplicado</span>
+      {[
+        { nome: "Marca", uso: "Nome principal", status: "Aprovado", ativo: true },
+        { nome: "Submarca", uso: "Linha ou unidade", status: "Em análise", ativo: false },
+        { nome: "Produto", uso: "Item do portfólio", status: "Em análise", ativo: false },
+      ].map((linha) => (
+        <div
+          key={linha.nome}
+          className={`flex items-center justify-between rounded-xl px-4 py-2.5 border ${
+            linha.ativo ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10"
+          }`}
+        >
+          <div>
+            <p className="text-xs font-medium text-foreground/90">{linha.nome}</p>
+            <p className="text-[9px] text-muted-foreground">{linha.uso}</p>
+          </div>
+          <span
+            className={`text-[9px] font-bold uppercase tracking-widest ${
+              linha.ativo ? "text-primary" : "text-foreground/60"
+            }`}
+          >
+            {linha.status}
+          </span>
         </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Ajuste no argumento de desconto pra linha Reflex
-        </p>
-      </div>
-      <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/85">Performance do banco de dados</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/80">Otimizado</span>
-        </div>
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          Consulta de histórico mais rápida pro copiloto responder na hora
-        </p>
-      </div>
-      <div className="rounded-xl bg-primary/10 border border-primary/30 p-4">
-        <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs font-medium text-foreground/90">Integração CRM</p>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Atualizada</span>
-        </div>
-        <p className="text-[11px] text-foreground/80 leading-relaxed">
-          API sincronizada com a versão mais recente, sem parar o sistema
-        </p>
-      </div>
+      ))}
+    </div>
+    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <Compass className="w-3 h-3" />
+      <span>Nome guiado pela estratégia</span>
     </div>
   </div>
 );
 
+const GuiaMockup = () => (
+  <div className="glass-dark rounded-3xl border border-primary/20 shadow-premium overflow-hidden p-6 sm:p-8">
+    <div className="flex items-center gap-2 mb-6">
+      <BookOpen className="w-4 h-4 text-primary/70" />
+      <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-primary/60">
+        Guia de marca · sumário
+      </p>
+    </div>
+    <div className="space-y-2">
+      {[
+        { n: "01", titulo: "Estratégia", nota: "Plataforma de marca" },
+        { n: "02", titulo: "Posicionamento", nota: "Promessa e manifesto" },
+        { n: "03", titulo: "Identidade verbal", nota: "Tom de voz e vocabulário" },
+        { n: "04", titulo: "Identidade visual", nota: "Logo, cores, tipografia" },
+        { n: "05", titulo: "Aplicações", nota: "Pontos de contato" },
+      ].map((cap, i, arr) => (
+        <div
+          key={cap.n}
+          className={`flex items-center gap-4 rounded-xl px-4 py-2.5 border ${
+            i === arr.length - 1 ? "bg-primary/10 border-primary/30" : "bg-white/5 border-white/10"
+          }`}
+        >
+          <span className="text-[10px] font-bold text-primary">{cap.n}</span>
+          <span className="text-xs text-foreground/85 flex-1">{cap.titulo}</span>
+          <span className="text-[9px] text-muted-foreground text-right">{cap.nota}</span>
+        </div>
+      ))}
+    </div>
+    <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-primary/70">
+      <ArrowDown className="w-3 h-3" />
+      <span>Um documento pra todo o time seguir</span>
+    </div>
+  </div>
+);
+
+const WHATSAPP_LINK =
+  "https://wa.me/5547991295745?text=Ol%C3%A1%2C%20Gabriel!%20Quero%20falar%20sobre%20a%20proposta%20de%20branding.";
+
 export const proposta: PropostaConfig = {
   hero: {
-    badge: "PROPOSTA COMERCIAL · JULIO · RAINOAH",
-    titulo: "Visibilidade, controle e recompra",
-    tituloDestaque: "para o comercial da Rainoah",
+    badge: "PROPOSTA · BRANDING · 2026",
+    titulo: "Negócios crescem.",
+    tituloDestaque: "Marcas expandem.",
     subtitulo:
-      "Uma rede de distribuidores em todo o Brasil gera muita conversa e pouco registro. Quatro agentes de IA cuidam do resto.",
+      "Consultoria de estratégia e identidade de marca pra empresas que querem ser escolhidas pelo motivo certo.",
     logoSrc: logo,
-    logoAlt: "GrowthHub",
+    logoAlt: "Gabriel Gonzaga",
     ctaLabel: "Ver como funciona",
     scrollTargetId: "momento-atual",
   },
 
   marquee: {
     items: [
-      "4 AGENTES DE IA",
-      "REGISTRO AUTOMÁTICO",
-      "COPILOTO DE VENDAS",
-      "SCORE DE NEGOCIAÇÃO",
-      "RELATÓRIO DIÁRIO",
-      "TUDO NO CRM ATUAL",
+      "ESTRATÉGIA DE MARCA",
+      "MÉTODO N.A.V.E.",
+      "POSICIONAMENTO",
+      "IDENTIDADE VERBAL",
+      "IDENTIDADE VISUAL",
+      "NAMING",
+      "GUIA DE MARCA",
     ],
   },
 
   momentoAtual: {
-    eyebrow: "O CENÁRIO HOJE",
-    titulo: "Trinta anos de produto resolvido, comercial que não escala",
+    eyebrow: "MARCA E BRANDING",
+    titulo: "Marca é o que dizem de você quando você não está presente",
     subtitulo:
-      "A Rainoah tem parque fabril e linha completa de massageadores. A rede de distribuidores no Brasil inteiro ainda depende de WhatsApp e memória.",
+      "Branding é o método pra construir o que vão falar de você. Sem método, o mercado decide sozinho.",
     desafio: {
-      titulo: "Como é hoje",
-      icone: Target,
+      titulo: "Marca sem método",
+      icone: AlertTriangle,
       items: [
-        "O que foi falado se perde: histórico de call e negociação vive só no WhatsApp e na cabeça do vendedor.",
-        "O vendedor responde sozinho: dúvida de voltagem, modelo ou prazo vira consulta interna que trava a negociação.",
-        "Ninguém sabe como está cada negócio: sem critério objetivo, negociação parada parece igual a negociação quente.",
+        "Estética sem clareza: a marca não explica quem é, o que representa e por que deve ser escolhida.",
+        "Cada canal fala uma língua: site, redes, embalagem e atendimento passam mensagens diferentes.",
+        "Disputa por preço: sem valor percebido, a única diferença que o cliente enxerga é a etiqueta.",
       ],
     },
     solucao: {
-      titulo: "Como passa a ser",
+      titulo: "Marca com método",
       icone: Lightbulb,
       items: [
-        "Cada interação vira resumo automático, com dores, objeções e próximo passo já registrados.",
-        "O agente de auxílio comercial responde na hora, com o argumento que já funcionou antes.",
-        "Cada negociação recebe uma nota de 0 a 100. A gestão age enquanto o negócio ainda existe.",
+        "O trabalho começa antes do visual: negócio, audiência, valores e história investigados a fundo.",
+        "Estratégia vira identidade visual e verbal coerente, relevante e memorável.",
+        "Posicionamento claro, que alinha o que o consumidor precisa com o modelo de negócio.",
       ],
     },
   },
 
   ecossistema: {
-    eyebrow: "OS QUATRO AGENTES",
-    titulo: "Um agente pra cada etapa do comercial",
+    eyebrow: "AS FRENTES DO BRANDING",
+    titulo: "Cinco frentes que constroem uma marca",
     subtitulo:
-      "Todos operam sobre o CRM que a Rainoah já usa. Nenhum sistema novo para o time aprender.",
+      "Da base estratégica até a percepção emocional do cliente. Cada frente sustenta a próxima.",
     pilares: [
       {
-        icone: FileText,
-        titulo: "Documentação automática",
-        descricao: "Transforma cada interação em resumo com dores, objeções e próximo passo.",
+        icone: Compass,
+        titulo: "Estratégia",
+        descricao: "A base que define o propósito e a direção de uma marca.",
       },
       {
-        icone: HelpCircle,
-        titulo: "Auxílio comercial",
-        descricao: "Responde dúvidas de produto e política e sugere argumento de venda na hora.",
+        icone: Palette,
+        titulo: "Identidade",
+        descricao: "Os elementos visuais e verbais que definem a personalidade e a presença da marca.",
       },
       {
-        icone: TrendingUp,
-        titulo: "Score de negociação",
-        descricao: "Nota de 0 a 100 por negociação, considerando etapas, tempo e qualidade do registro.",
+        icone: Crosshair,
+        titulo: "Posicionamento",
+        descricao: "O lugar estratégico da marca no mercado, pra destacar o seu valor único.",
       },
       {
-        icone: BarChart3,
-        titulo: "Relatório gerencial",
-        descricao: "Resumo diário do que avançou, travou e precisa de decisão, sem cobrar planilha de ninguém.",
+        icone: Megaphone,
+        titulo: "Comunicação",
+        descricao: "A mensagem da marca nos diferentes canais e pontos de contato.",
       },
       {
-        icone: Link2,
-        titulo: "Fundação única",
-        descricao: "Tudo roda integrado ao CRM que a Rainoah já usa, sem sistema novo pra aprender.",
+        icone: Heart,
+        titulo: "Experiência",
+        descricao: "A interação geral e a percepção emocional do cliente com a sua marca.",
       },
     ],
   },
@@ -295,224 +351,241 @@ export const proposta: PropostaConfig = {
   featureTabs: {
     tabs: [
       {
-        label: "DOCUMENTAÇÃO",
-        icone: FileText,
-        titulo: "Documentação automática pra SDRs",
+        label: "DIAGNÓSTICO",
+        icone: Search,
+        titulo: "Discovery pelo Método N.A.V.E.",
         descricao:
-          "Cada call, cada conversa de lojista e cada negociação de marca própria vira registro, sem depender da memória do vendedor.",
+          "Tudo parte de um diagnóstico: revisão do modelo de negócio, compreensão da audiência e definição da personalidade da marca.",
         itens: [
-          "Resumo objetivo com dores, objeções e próximo passo",
-          "Preenche automaticamente perfil, região e interesse do lead",
-          "Gera follow-up sugerido já escrito, no tom da Rainoah",
-          "Mantém histórico contínuo por conta",
+          "Negócio: contexto, metas de curto e longo prazo e objetivo principal",
+          "Audiência: segmentos de mercado, tipos de consumidor e personas",
+          "Valor: proposta de valor, análise de mercado e auditoria da concorrência",
+          "Estória: história de criação, sistema de crenças, propósito e atributos",
         ],
-        mockup: <DocMockup />,
+        mockup: <NaveMockup />,
       },
       {
-        label: "AUXÍLIO COMERCIAL",
-        icone: HelpCircle,
-        titulo: "Um copiloto pra cada vendedor",
+        label: "ESTRATÉGIA",
+        icone: Layers,
+        titulo: "Uma plataforma de marca pra guiar cada decisão",
         descricao:
-          "Vendedor novo produz como vendedor antigo, em semanas e não em meses. O agente responde antes que a dúvida trave a negociação.",
+          "O resultado do diagnóstico vira estratégia: plataforma de marca e direção criativa, documentadas num relatório.",
         itens: [
-          "Responde dúvidas de produto, voltagem, modelo e garantia",
-          "Consulta a política comercial: faixas de desconto e condições",
-          "Sugere argumento de quebra de objeção com base no que já funcionou",
-          "Monta rascunho de proposta e mensagem",
+          "Entrevistas individuais com colaboradores chave",
+          "Workshop de estratégia facilitado por um estrategista",
+          "Pesquisas internas e análise das informações coletadas",
+          "Relatório de estratégia com tudo o que foi apurado",
         ],
-        mockup: <AuxilioMockup />,
+        mockup: <PlataformaMockup />,
       },
       {
-        label: "SCORE DE PROCESSO",
-        icone: TrendingUp,
-        titulo: "Uma nota pra cada negociação",
+        label: "POSICIONAMENTO",
+        icone: MessageSquareQuote,
+        titulo: "O que a marca fala e como ela fala",
         descricao:
-          "A gestão passa a agir sobre a negociação enquanto ela ainda existe, não depois que o cliente já sumiu.",
+          "O eixo narrativo da marca: sua promessa, a mensagem central e o manifesto. Como a sua empresa quer ser lembrada.",
         itens: [
-          "Nota de 0 a 100 considerando etapas, tempo de resposta e qualidade do registro",
-          "Aponta etapas puladas: qualificação incompleta, proposta sem diagnóstico",
-          "Sinaliza risco de perda antes do cliente sumir",
-          "Painel de gestão com nota média e ranking por vendedor e região",
+          "Eixo narrativo e storytelling",
+          "Promessa, slogan e manifesto",
+          "Território lexical e expressões próprias",
+          "Tom de voz aplicado aos canais da marca",
         ],
-        mockup: <ScoreMockup />,
+        mockup: <VerbalMockup />,
       },
       {
-        label: "RELATÓRIO GERENCIAL",
-        icone: BarChart3,
-        titulo: "Gestão comercial em cinco minutos por dia",
+        label: "IDENTIDADE VISUAL",
+        icone: PenTool,
+        titulo: "Os elementos que fazem a marca ser reconhecida",
         descricao:
-          "Resumo diário do que avançou, do que travou e do que precisa de decisão hoje, sem cobrar planilha de ninguém.",
+          "O conjunto de características visuais que identificam a marca, criado a partir da estratégia e não do gosto pessoal.",
         itens: [
-          "Resumo diário: o que avançou, o que travou e o que precisa de decisão",
-          "Destaque das três contas mais críticas do dia",
-          "Fechamento semanal com evolução de nota e desempenho",
-          "Alerta imediato para contas grandes em risco",
+          "Logo, símbolos e assinaturas",
+          "Paleta de cores e tipografia",
+          "Ícones, grafismos e ilustrações",
+          "Direção de fotografia e animações",
         ],
-        mockup: <RelatorioMockup />,
+        mockup: <VisualMockup />,
       },
       {
-        label: "TREINAMENTO",
-        icone: GraduationCap,
-        titulo: "Dois treinamentos pra destravar o time",
+        label: "NAMING",
+        icone: Tag,
+        titulo: "Um nome que já nasce com estratégia",
         descricao:
-          "Depois da ativação, o time comercial recebe dois treinamentos ao vivo: um pra dominar o sistema, outro pra tirar o máximo dos quatro agentes no dia a dia.",
+          "Criação de nome pra marca, submarcas ou produtos, alinhado ao posicionamento definido no diagnóstico.",
         itens: [
-          "Treinamento 1: uso do sistema e do painel de gestão",
-          "Treinamento 2: como tirar o máximo de cada agente",
-          "Sessões gravadas, disponíveis pro time rever quando quiser",
-          "Espaço aberto pra dúvidas depois da virada de chave",
+          "Nome da marca principal",
+          "Nomes de submarcas e linhas",
+          "Nomes de produtos do portfólio",
+          "Escolha guiada pela plataforma de marca",
         ],
-        mockup: <TreinamentoMockup />,
+        mockup: <NamingMockup />,
       },
       {
-        label: "MANUTENÇÃO",
-        icone: Wrench,
-        titulo: "Manutenção pensada pra evoluir, não só sustentar",
+        label: "GUIA DE MARCA",
+        icone: BookOpen,
+        titulo: "Tudo unido num guia de comunicação",
         descricao:
-          "Todo mês o sistema fica mais rápido e mais afiado. Melhoria entra a partir do feedback real do time comercial, não só quando algo quebra.",
+          "Estratégia, posicionamento e identidade verbal e visual reunidos num só documento, pra marca falar igual em qualquer ponto de contato.",
         itens: [
-          "Melhoria contínua com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização de APIs e integrações sempre que a Rainoah mudar de ferramenta",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
+          "Plataforma de marca documentada",
+          "Regras de identidade verbal e visual",
+          "Aplicações nos pontos de contato",
+          "Referência pra time interno e fornecedores",
         ],
-        mockup: <ManutencaoMockup />,
+        mockup: <GuiaMockup />,
       },
     ],
   },
 
   jornada: {
-    eyebrow: "IMPLEMENTAÇÃO EM 2 MESES",
-    titulo: "Cada etapa entrega algo",
-    tituloDestaque: "funcionando e validado pelo time",
+    eyebrow: "LINHA DO TEMPO",
+    titulo: "Cada fase entrega",
+    tituloDestaque: "uma decisão validada",
     subtitulo:
-      "Sem grande virada de chave no fim. Só entrega validada, etapa após etapa.",
+      "Da estratégia de marca à identidade de marca, em quatro fases e oito etapas.",
     etapas: [
       {
         numero: 1,
-        titulo: "Imersão",
+        titulo: "Coletando",
         descricao:
-          "Duas sessões pra mapear o funil comercial real, levantamento técnico do CRM e canal de atendimento, e critérios da nota definidos.",
+          "Diagnóstico: entrevistas individuais, workshop de estratégia e pesquisas internas pra levantar tudo sobre o negócio.",
       },
       {
         numero: 2,
-        titulo: "Fundação",
+        titulo: "Explorando",
         descricao:
-          "Base de conhecimento treinada em catálogo, política comercial e argumentos, com integração completa ao CRM que a Rainoah já usa.",
+          "Direção estratégica e criativa: relatório de estratégia e plataforma de marca com a síntese do que foi apurado.",
       },
       {
         numero: 3,
-        titulo: "Piloto",
+        titulo: "Criando",
         descricao:
-          "Documentação automática e auxílio comercial liberados pra um grupo piloto de vendedores, com ajustes a partir do uso real.",
+          "Key Word e Key Visual: proposta de posicionamento e identidade verbal, seguida da proposta de identidade visual.",
       },
       {
         numero: 4,
-        titulo: "Painel completo",
+        titulo: "Definindo",
         descricao:
-          "Score de negociação e relatório gerencial diário entram em operação, com painel de gestão liberado.",
-      },
-      {
-        numero: 5,
-        titulo: "Ativação",
-        descricao:
-          "Treinamento ao vivo com o time comercial, liberação dos quatro agentes pra operação inteira e acompanhamento diário na primeira semana.",
+          "Guia de marca: estratégia, posicionamento e identidade verbal e visual unidos num guia de comunicação.",
       },
     ],
   },
 
   investimento: {
-    eyebrow: "O CUSTO DE NÃO TER",
-    titulo: "Antes e depois dos quatro agentes",
+    eyebrow: "EMPRESA OU MARCA",
+    titulo: "Antes e depois do Branding",
     subtitulo:
-      "O comercial da Rainoah antes de ter registro, copiloto e controle automatizados, e depois.",
+      "A diferença entre ter um logotipo e ter uma marca que as pessoas reconhecem, lembram e escolhem.",
     cenarioAtual: {
       titulo: "Cenário Atual",
       label: "HOJE",
-      destaque: "Comercial na memória do vendedor",
-      subtitulo: "Sem registro, sem critério",
+      destaque: "Lembrada pelo preço",
+      subtitulo: "Visual sem estratégia por trás",
       items: [
-        "Histórico de negociação vive só no WhatsApp e na cabeça do vendedor",
-        "Cada dúvida de produto vira consulta interna que trava a venda",
-        "Negociação parada parece igual a negociação quente, sem critério objetivo",
+        "Comunicação que muda conforme quem escreve",
+        "Público que não entende o que torna a empresa diferente",
+        "Decisões de marca tomadas no gosto pessoal",
       ],
     },
     cenarioFuturo: {
-      titulo: "Cenário Rainoah",
-      label: "COM OS 4 AGENTES",
-      destaque: "Comercial com visibilidade total",
-      subtitulo: "Registro, copiloto e controle automatizados",
+      titulo: "Cenário com Branding",
+      label: "COM MÉTODO",
+      destaque: "Lembrada pelo propósito",
+      subtitulo: "Estratégia, posicionamento e identidade alinhados",
       items: [
-        "Cada interação registrada automaticamente, com próximo passo já definido",
-        "Copiloto comercial responde dúvidas de produto e política na hora",
-        "Nota de 0 a 100 por negociação, direto no painel de gestão",
-        "Relatório gerencial pronto todo dia, sem cobrar planilha de ninguém",
+        "Plataforma de marca clara: propósito, valores, promessa e público",
+        "Mesma voz e mesmo visual em todos os pontos de contato",
+        "Diferencial percebido que sustenta valor e fideliza audiência",
+        "Guia de marca pra orientar time e fornecedores",
       ],
     },
   },
 
   precos: {
     eyebrow: "INVESTIMENTO",
-    titulo: "Estrutura comercial",
+    titulo: "Serviços e valores",
     planos: [
       {
-        eyebrow: "IMPLEMENTAÇÃO",
-        nome: "Setup dos Quatro Agentes",
+        eyebrow: "ETAPA 01 · A BASE",
+        nome: "Estratégia",
         descricao:
-          "Mapeamento do processo, construção dos quatro agentes e ativação assistida, em 2 meses.",
-        valor: "R$ 6.997",
-        periodo: "pagamento único",
-        rotuloValor: "implementação completa",
-        itens: [
-          "Mapeamento do processo comercial e construção dos quatro agentes",
-          "Base de conhecimento treinada em catálogo, política e argumentos",
-          "Integração completa com o CRM que a Rainoah já usa",
-          "Painel de gestão com nota por negociação e ranking",
-          "2 treinamentos comerciais ao vivo: uso do sistema e uso dos agentes",
-          "Ativação assistida com acompanhamento diário na primeira semana",
-        ],
-        observacao:
-          "Requer acesso ao CRM, catálogo atualizado, política comercial vigente e cerca de 2h do time comercial nas duas primeiras semanas.",
-      },
-      {
-        eyebrow: "MANUTENÇÃO",
-        nome: "Manutenção Mensal",
-        descricao:
-          "Tudo que mantém os quatro agentes rodando, evoluindo e sempre atualizados.",
-        valor: "R$ 1.799",
-        periodo: "/mês",
-        rotuloValor: "mensalidade fixa",
+          "Workshop, entrevistas e pesquisas entregues num relatório de estratégia de marca pra guiar todas as decisões da criação.",
+        valor: "R$ 4.000",
+        rotuloValor: "a partir de",
         destaque: true,
         itens: [
-          "Monitoramento e correção de falhas dos quatro agentes",
-          "Atualização de APIs e integrações, incluindo CRM e canal de atendimento",
-          "Melhoria contínua dos agentes com base no feedback direto dos vendedores",
-          "Otimização de velocidade de resposta e do banco de dados",
-          "Atualização da base com produtos, políticas e argumentos novos",
-          "Pequenas melhorias e novas funcionalidades dentro do escopo já acordado",
-          "Canal direto pra dúvidas e demandas, com relatório mensal de uso e desempenho",
+          "Workshop de estratégia com exercícios multidisciplinares",
+          "Facilitação por um estrategista de marca",
+          "Entrevistas com colaboradores e/ou clientes",
+          "Pesquisas qualitativas e quantitativas",
+          "Relatório de estratégia de marca",
         ],
         observacao:
-          "Cobre manutenção e evolução dentro do escopo entregue. Funcionalidades fora do escopo original são orçadas à parte.",
+          "É a etapa que orienta todas as outras. Ponto de partida recomendado pra qualquer projeto de marca.",
+      },
+      {
+        eyebrow: "ETAPA 02 · A NARRATIVA",
+        nome: "Posicionamento + Identidade Verbal",
+        descricao:
+          "O que e como a marca fala, a história que ela conta e a promessa que ela faz.",
+        valor: "R$ 3.000",
+        rotuloValor: "a partir de",
+        itens: [
+          "Posicionamento de marca e eixo narrativo",
+          "Storytelling, slogan e manifesto",
+          "Território lexical e expressões",
+          "Tom de voz da marca",
+        ],
+      },
+      {
+        eyebrow: "ETAPA 03 · O VISUAL",
+        nome: "Identidade Visual",
+        descricao:
+          "Os elementos gráficos que constroem a identidade visual da marca.",
+        valor: "R$ 4.000",
+        rotuloValor: "a partir de",
+        itens: [
+          "Logo, símbolos e assinaturas",
+          "Ícones, cores e tipografia",
+          "Grafismos e animações",
+          "Ilustrações e fotografia",
+        ],
+        observacao:
+          "Colaterais como apresentações, editorial, embalagem, web design, sinalização e templates são orçados à parte.",
+      },
+      {
+        eyebrow: "SOB DEMANDA · O NOME",
+        nome: "Naming",
+        descricao:
+          "Criação de nome pra marca, submarcas e/ou produtos.",
+        valor: "R$ 1.000",
+        rotuloValor: "a partir de",
+        itens: [
+          "Nome da marca",
+          "Nomes de submarcas",
+          "Nomes de produtos",
+        ],
+        observacao:
+          "Todos os valores são a partir de. O orçamento final depende do escopo de cada projeto.",
       },
     ],
   },
 
   cta: {
     eyebrow: "PRÓXIMO PASSO",
-    titulo: "Bora tirar o comercial",
-    tituloDestaque: "da cabeça do vendedor?",
+    titulo: "Bora transformar sua empresa",
+    tituloDestaque: "em marca?",
     descricao:
-      "Proposta com validade de 15 dias. Qualquer ponto do escopo pode ser ajustado antes da assinatura, é só chamar que a gente alinha.",
+      "Cada projeto começa com uma conversa. Me chama no WhatsApp e a gente define juntos o escopo ideal pra sua marca.",
     botaoLabel: "Falar no WhatsApp",
-    botaoLink:
-      "https://wa.me/5521991083870?text=Ol%C3%A1!%20Quero%20falar%20sobre%20a%20proposta.",
+    botaoLink: WHATSAPP_LINK,
   },
 
   footer: {
     logoSrc: logo,
-    siteUrl: "https://methodgrowthhub.com.br",
-    siteLabel: "methodgrowthhub.com.br",
-    nota: "Desenvolvido por Method Growth Hub · Tecnologia e automação sob medida para operações comerciais.",
+    logoAlt: "Gabriel Gonzaga",
+    siteUrl: WHATSAPP_LINK,
+    siteLabel: "Falar com Gabriel Gonzaga",
+    nota: "Gabriel Gonzaga · Consultor de marca e Branding. Estratégia, posicionamento e identidade pra empresas pequenas e grandes de diversos setores.",
   },
 };

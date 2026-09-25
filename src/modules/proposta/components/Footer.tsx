@@ -19,7 +19,7 @@ export const Footer = ({ data }: Props) => {
         {data.logoSrc && (
           <img
             src={data.logoSrc}
-            alt="GrowthHub"
+            alt={data.logoAlt ?? "Logo"}
             className="h-7 w-auto opacity-90"
           />
         )}

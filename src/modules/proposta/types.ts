@@ -118,6 +118,7 @@ export interface CTAData {
 
 export interface FooterData {
   logoSrc?: string;
+  logoAlt?: string;
   siteUrl: string;
   siteLabel: string;
   nota?: string;
