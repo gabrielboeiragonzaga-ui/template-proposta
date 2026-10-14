@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Síndrome de Edwards</title>
+<meta name="description" content="Apresentação animada: Síndrome de Edwards, Trissomia do Cromossomo 18.">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  Navegação: → / espaço / clique = avançar · ← / clique direito = voltar · F = tela cheia
+  data-r = tipo de revelação · data-d = atraso (ms) a partir da chegada do slide
+  data-ly = camada recortada do slide original (posição vem de assets/manifest.js)
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gradCheck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7fe0"/><stop offset="1" stop-color="#123f95"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<div id="app">
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <main id="stage" aria-live="polite">
+
+    <!-- ===================== 1 · CAPA ===================== -->
+    <section class="slide" data-n="1" aria-label="Síndrome de Edwards">
+      <div class="halo breathe" data-r="glow" data-d="0" style="left:590px;top:110px;width:720px;height:720px"><div class="in"></div></div>
+      <div class="rays" data-r="glow" data-d="120" style="left:450px;top:-30px;width:1000px;height:1000px"><div class="in"></div></div>
+      <div class="rays rev" data-r="glow" data-d="260" style="left:550px;top:70px;width:800px;height:800px"><div class="in"></div></div>
+      <svg class="fx" viewBox="0 0 1920 1080">
+        <circle class="ring" data-r="draw" data-d="500" data-dur="2200" cx="950" cy="470" r="350" transform="rotate(-90 950 470)" filter="url(#glow)"/>
+      </svg>
+      <div class="ly" data-ly="pill" data-r="panel" data-d="700"></div>
+      <div class="ly float" data-ly="chromo" data-r="chromo" data-d="150" style="--fy:-7px;--fx:1px;--fr:0.5deg;--fd:8s"></div>
+      <div class="ly" data-ly="tri" data-r="pill" data-d="1650"></div>
+      <div class="ly" data-ly="card" data-r="panel" data-d="1950"></div>
+
+      <h1 class="t cover-word" data-r="chars" data-d="950" style="left:140px;top:349px;width:672px;text-align:right">Síndrome</h1>
+      <div class="t cover-word" data-r="chars" data-d="1150" style="left:1108px;top:349px">Edwards</div>
+      <div class="hair" data-r="wipe" data-o="right" data-d="1450" style="left:255px;top:547px;width:200px"></div>
+      <div class="hair r" data-r="wipe" data-o="left" data-d="1450" style="left:575px;top:547px;width:200px"></div>
+      <div class="t cover-de" data-r="fade" data-d="1400" style="left:415px;top:497px;width:200px;text-align:center">de</div>
+      <div class="t pill-txt" data-r="fade" data-d="1900" style="left:1117px;top:538px;width:631px;text-align:center;font-size:45px;line-height:1">Trissomia do Cromossomo 18</div>
+
+      <div class="accent-bar" data-r="wipeY" data-d="2250" style="left:581px;top:835px;height:152px"></div>
+      <div class="t card-serif" data-r="lines" data-d="2250" style="left:618px;top:824px">
+        <span class="ln"><b>Professor:</b> Jonatan</span>
+        <span class="ln"><b>Alunos:</b> Ágatha, João Matias, Maurício e Bernardo</span>
+        <span class="ln"><b>Matéria:</b> Biologia</span>
+        <span class="ln"><b>Turma:</b> 105</span>
+      </div>
+    </section>
+
+    <!-- ===================== 2 · O QUE É ===================== -->
+    <section class="slide" data-n="2" aria-label="O que é a Síndrome de Edwards?">
+      <div class="ly" data-ly="panel" data-r="panel" data-d="0"></div>
+      <div class="ly float" data-ly="c1" data-r="chromo" data-d="350" style="--fy:-6px;--fr:0.6deg;--fd:9s"></div>
+      <div class="ly float" data-ly="c2" data-r="chromo" data-d="650" style="--fy:-5px;--fr:-0.5deg;--fd:10s;--fdel:-3s"></div>
+      <div class="halo breathe" data-r="glow" data-d="1350" style="left:1540px;top:330px;width:380px;height:480px;filter:hue-rotate(-10deg)"><div class="in"></div></div>
+      <div class="ly float" data-ly="c3" data-r="chromo" data-d="1250" style="--fy:-7px;--fr:0.7deg;--fd:8.5s;--fdel:-5s"></div>
+      <div class="pulse" data-r="pulse" data-d="2350" data-loop="5200" style="left:1555px;top:420px;width:350px;height:350px"></div>
+
+      <h1 class="t h1" data-r="words" data-d="250" style="left:135px;top:199px;font-size:93px;line-height:90px">
+        <span class="acc">O</span> que é a <span class="acc">Síndrome</span><br>de Edwards?
+      </h1>
+      <p class="t body" data-r="lines" data-d="700" style="left:136px;top:403px;font-size:31.5px;line-height:41px">
+        <span class="ln">Normalmente, cada célula humana possui 46</span>
+        <span class="ln">cromossomos, organizados em 23 pares. Na Síndrome</span>
+        <span class="ln">de Edwards, existe uma cópia extra do cromossomo 18,</span>
+        <span class="ln">totalizando três cópias em vez de duas.</span>
+      </p>
+      <p class="t body" data-r="lines" data-d="1100" style="left:136px;top:588px;font-size:31.5px;line-height:41px">
+        <span class="ln">Ela é uma <b>alteração cromossômica</b>, e não uma</span>
+        <span class="ln">doença contagiosa.</span>
+      </p>
+      <h2 class="t h2" data-r="words" data-d="1400" style="left:135px;top:695px;font-size:62px;line-height:70px">Por que acontece?</h2>
+      <p class="t body" data-r="lines" data-d="1650" style="left:136px;top:783px;font-size:31.5px;line-height:41px">
+        <span class="ln">Na maioria dos casos, a trissomia acontece por uma</span>
+        <span class="ln">alteração durante a formação do óvulo ou do</span>
+        <span class="ln">espermatozoide. Geralmente não é herdada dos pais</span>
+        <span class="ln">e não significa que os pais tenham feito algo para causá-la.</span>
+      </p>
+    </section>
+
+    <!-- ===================== 3 · TRÊS FORMAS ===================== -->
+    <section class="slide" data-n="3" aria-label="Existem três formas principais">
+      <div class="ly float" data-ly="t1" data-r="focus" data-d="350" style="--fy:-5px;--fd:10s"></div>
+      <div class="ly" data-ly="beam1" data-r="beam" data-d="800"></div>
+      <div class="ly float" data-ly="m1" data-r="focus" data-d="950" style="--fy:4px;--fd:11s;--fdel:-4s"></div>
+      <div class="ly float" data-ly="t2" data-r="focus" data-d="1050" style="--fy:-6px;--fd:9.5s;--fdel:-2s"></div>
+      <div class="ly" data-ly="beam2" data-r="beam" data-d="1500"></div>
+      <div class="ly float" data-ly="m2" data-r="focus" data-d="1650" style="--fy:5px;--fd:10.5s;--fdel:-6s"></div>
+      <div class="ly float" data-ly="t3" data-r="focus" data-d="1750" style="--fy:-5px;--fd:10s;--fdel:-1s"></div>
+      <div class="ly" data-ly="beam3" data-r="beam" data-d="2200"></div>
+      <div class="ly float" data-ly="m3" data-r="focus" data-d="2350" style="--fy:4px;--fd:12s;--fdel:-7s"></div>
+
+      <div class="ly" data-ly="panel" data-r="panel" data-d="0"></div>
+      <div class="ly" data-ly="card1" data-r="panel" data-d="600"></div>
+      <div class="ly" data-ly="card2" data-r="panel" data-d="1300"></div>
+      <div class="ly" data-ly="card3" data-r="panel" data-d="2000"></div>
+      <div class="ly" data-ly="b1" data-r="pop" data-d="850"></div>
+      <div class="ly" data-ly="b2" data-r="pop" data-d="1550"></div>
+      <div class="ly" data-ly="b3" data-r="pop" data-d="2250"></div>
+      <div class="vline" data-r="wipeY" data-d="900" style="left:1294px;top:366px;height:136px"></div>
+      <div class="vline" data-r="wipeY" data-d="1600" style="left:1294px;top:596px;height:140px"></div>
+      <div class="vline" data-r="wipeY" data-d="2300" style="left:1294px;top:826px;height:140px"></div>
+
+      <h1 class="t h1" data-r="words" data-d="200" style="left:1172px;top:163px;font-size:67px;line-height:68px">Existem três formas<br>principais:</h1>
+
+      <h3 class="t h2" data-r="words" data-d="950" style="left:1327px;top:353px;font-size:34px;line-height:40px">Trissomia completa:</h3>
+      <p class="t body" data-r="lines" data-d="1100" style="left:1327px;top:397px;font-size:31px;line-height:39px">
+        <span class="ln">o cromossomo 18 extra está</span>
+        <span class="ln">presente em praticamente</span>
+        <span class="ln">todas as células.</span>
+      </p>
+      <h3 class="t h2" data-r="words" data-d="1650" style="left:1328px;top:582px;font-size:34px;line-height:40px">Trissomia em mosaico:</h3>
+      <p class="t body" data-r="lines" data-d="1800" style="left:1328px;top:627px;font-size:31px;line-height:39px">
+        <span class="ln">o cromossomo extra está</span>
+        <span class="ln">presente apenas em algumas</span>
+        <span class="ln">células.</span>
+      </p>
+      <h3 class="t h2" data-r="words" data-d="2350" style="left:1328px;top:813px;font-size:34px;line-height:40px">Trissomia parcial:</h3>
+      <p class="t body" data-r="lines" data-d="2500" style="left:1328px;top:859px;font-size:31px;line-height:39px">
+        <span class="ln">apenas uma parte do</span>
+        <span class="ln">cromossomo 18 está presente</span>
+        <span class="ln">em excesso.</span>
+      </p>
+    </section>
+
+    <!-- ===================== 4 · CARACTERÍSTICAS ===================== -->
+    <section class="slide" data-n="4" aria-label="Principais características">
+      <div class="ly" data-ly="panel" data-r="panel" data-d="0"></div>
+      <div class="ly float" data-ly="baby" data-r="focus" data-d="250" data-dur="1700" style="--fy:-5px;--fd:11s"></div>
+      <div class="scan" data-r="scan" data-d="200" data-y0="160" data-y1="990" style="left:1250px;top:0;width:380px;height:60px"></div>
+      <svg class="fx" viewBox="0 0 1920 1080">
+        <g filter="url(#glow)">
+          <line class="wire" data-r="draw" data-d="1100" data-dur="700" x1="1430" y1="213" x2="1572" y2="193"/>
+          <line class="wire" data-r="draw" data-d="1300" data-dur="700" x1="1418" y1="381" x2="1592" y2="428"/>
+          <line class="wire" data-r="draw" data-d="1500" data-dur="700" x1="1474" y1="897" x2="1562" y2="860"/>
+          <circle class="node" data-r="pop" data-d="1000" cx="1430" cy="213" r="7"/>
+          <circle class="node" data-r="pop" data-d="1200" cx="1418" cy="381" r="7"/>
+          <circle class="node" data-r="pop" data-d="1400" cx="1474" cy="897" r="7"/>
+        </g>
+      </svg>
+      <div class="ly float" data-ly="z_head" data-r="focus" data-d="1450" style="--fy:-4px;--fd:9s;--fdel:-2s"></div>
+      <div class="ly float" data-ly="z_face" data-r="focus" data-d="1650" style="--fy:4px;--fd:10s;--fdel:-5s"></div>
+      <div class="ly float" data-ly="z_hand" data-r="focus" data-d="1800" style="--fy:-4px;--fd:9.5s;--fdel:-7s"></div>
+      <div class="ly float" data-ly="z_foot" data-r="focus" data-d="1850" style="--fy:5px;--fd:11s;--fdel:-3s"></div>
+
+      <h1 class="t h1" data-r="words" data-d="200" style="left:121px;top:202px;font-size:86px;line-height:90px">Principais características</h1>
+      <p class="t body" data-r="lines" data-d="550" style="left:122px;top:313px;font-size:34px;line-height:45px;font-weight:500">
+        <span class="ln">A condição pode afetar o crescimento e vários órgãos.</span>
+        <span class="ln">Entre as características que podem aparecer estão:</span>
+      </p>
+      <div class="vline" data-r="wipeY" data-d="900" style="left:636px;top:450px;height:418px"></div>
+      <div class="list" data-r="list" data-d="950" data-stagger="120">
+        <div class="it"><i class="dot" style="left:129px;top:454px"></i><p class="t body" style="left:180px;top:442px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">baixo peso ao nascer;</p></div>
+        <div class="it"><i class="dot" style="left:129px;top:511px"></i><p class="t body" style="left:180px;top:498px;font-size:30px;letter-spacing:-0.01em;line-height:41px;font-weight:500">crescimento abaixo do<br>esperado;</p></div>
+        <div class="it"><i class="dot" style="left:129px;top:611px"></i><p class="t body" style="left:180px;top:599px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">cabeça pequena;</p></div>
+        <div class="it"><i class="dot" style="left:129px;top:669px"></i><p class="t body" style="left:180px;top:657px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">mandíbula pequena;</p></div>
+        <div class="it"><i class="dot" style="left:129px;top:728px"></i><p class="t body" style="left:180px;top:715px;font-size:30px;letter-spacing:-0.01em;line-height:43px;font-weight:500">mãos frequentemente<br>fechadas, com sobreposição<br>dos dedos;</p></div>
+      </div>
+      <div class="list" data-r="list" data-d="1450" data-stagger="120">
+        <div class="it"><i class="dot" style="left:668px;top:456px"></i><p class="t body" style="left:716px;top:443px;font-size:30px;letter-spacing:-0.01em;line-height:43px;font-weight:500">pés com formato<br>característico, chamados<br>de ‘pés em cadeira de balanço’;</p></div>
+        <div class="it"><i class="dot" style="left:668px;top:604px"></i><p class="t body" style="left:716px;top:592px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">alterações nas orelhas;</p></div>
+        <div class="it"><i class="dot" style="left:668px;top:667px"></i><p class="t body" style="left:716px;top:654px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">dificuldades de alimentação;</p></div>
+        <div class="it"><i class="dot" style="left:668px;top:729px"></i><p class="t body" style="left:716px;top:716px;font-size:30px;letter-spacing:-0.01em;line-height:43px;font-weight:500">alterações no<br>desenvolvimento neurológico;</p></div>
+        <div class="it"><i class="dot" style="left:668px;top:837px"></i><p class="t body" style="left:716px;top:824px;font-size:30px;letter-spacing:-0.01em;line-height:42px;font-weight:500">problemas de visão e audição.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 5 · PROBLEMAS DE SAÚDE ===================== -->
+    <section class="slide" data-n="5" aria-label="Problemas de saúde associados">
+      <svg class="fx" viewBox="0 0 1920 1080">
+        <g filter="url(#glow)">
+          <line class="wire" data-r="draw" data-d="700" data-dur="500" x1="590" y1="404" x2="590" y2="366"/>
+          <line class="wire" data-r="draw" data-d="850" data-dur="600" x1="506" y1="528" x2="432" y2="500"/>
+          <line class="wire" data-r="draw" data-d="1000" data-dur="600" x1="642" y1="548" x2="788" y2="494"/>
+          <line class="wire" data-r="draw" data-d="1150" data-dur="600" x1="480" y1="668" x2="392" y2="728"/>
+          <line class="wire" data-r="draw" data-d="1300" data-dur="600" x1="676" y1="692" x2="756" y2="740"/>
+        </g>
+      </svg>
+      <div class="ly float" data-ly="heart" data-r="focus" data-d="1050" style="--fy:-5px;--fd:9s"></div>
+      <div class="ly float" data-ly="lungs" data-r="focus" data-d="1200" style="--fy:5px;--fd:10s;--fdel:-3s"></div>
+      <div class="ly float" data-ly="kidney" data-r="focus" data-d="1350" style="--fy:-4px;--fd:11s;--fdel:-6s"></div>
+      <div class="ly float" data-ly="stomach" data-r="focus" data-d="1500" style="--fy:4px;--fd:9.5s;--fdel:-2s"></div>
+      <div class="ly float" data-ly="sense" data-r="focus" data-d="1650" style="--fy:-5px;--fd:10.5s;--fdel:-8s"></div>
+      <div class="halo breathe" data-r="glow" data-d="0" style="left:400px;top:400px;width:380px;height:460px"><div class="in"></div></div>
+      <div class="ly float" data-ly="chromo" data-r="chromo" data-d="100" style="--fy:-6px;--fr:0.5deg;--fd:8s"></div>
+
+      <div class="ly" data-ly="panel" data-r="panel" data-d="350"></div>
+      <div class="ly" data-ly="card1" data-r="panel" data-d="1150"></div>
+      <div class="ly" data-ly="card2" data-r="panel" data-d="1500"></div>
+      <div class="ly" data-ly="i1" data-r="pop" data-d="1350"></div>
+      <div class="ly" data-ly="i2" data-r="pop" data-d="1700"></div>
+      <div class="vline" data-r="wipeY" data-d="1400" style="left:1327px;top:452px;height:146px"></div>
+      <div class="vline" data-r="wipeY" data-d="1750" style="left:1327px;top:680px;height:122px"></div>
+
+      <h1 class="t h1" data-r="words" data-d="550" style="left:1154px;top:174px;font-size:67px;line-height:64px">Problemas de saúde<br>associados</h1>
+      <p class="t body" data-r="lines" data-d="900" style="left:1155px;top:316px;font-size:33px;line-height:40px;font-weight:500;color:#1d3a78">
+        <span class="ln">É comum haver malformações congênitas,</span>
+        <span class="ln">principalmente:</span>
+      </p>
+      <p class="t body" data-r="lines" data-d="1450" style="left:1356px;top:446px;font-size:29.5px;line-height:39px">
+        <span class="ln"><b class="acc-txt">Coração:</b> podem ocorrer</span>
+        <span class="ln">comunicação entre as câmaras</span>
+        <span class="ln">do coração e persistência do</span>
+        <span class="ln">canal arterial.</span>
+      </p>
+      <p class="t body" data-r="lines" data-d="1800" style="left:1356px;top:684px;font-size:29.5px;line-height:39px">
+        <span class="ln"><b class="acc-txt">Rins:</b> podem existir alterações</span>
+        <span class="ln">como rim em ferradura,</span>
+        <span class="ln">hidronefrose ou rins policísticos.</span>
+      </p>
+      <p class="t body" data-r="lines" data-d="2150" style="left:1155px;top:858px;font-size:32px;line-height:41px">
+        <span class="ln">Também podem ocorrer <b>dificuldades</b></span>
+        <span class="ln"><b>respiratórias, convulsões e problemas</b></span>
+        <span class="ln"><b>de alimentação.</b></span>
+      </p>
+    </section>
+
+    <!-- ===================== 6 · DIAGNÓSTICO E TRATAMENTO ===================== -->
+    <section class="slide" data-n="6" aria-label="Como é descoberta e existe tratamento?">
+      <div class="ly float" data-ly="embryo" data-r="focus" data-d="150" data-dur="1700" style="--fy:-6px;--fr:0.3deg;--fd:12s"></div>
+      <div class="ly float" data-ly="dna" data-r="focus" data-d="550" style="--fy:5px;--fd:10s;--fdel:-4s"></div>
+      <div class="ly float" data-ly="tube" data-r="focus" data-d="700" style="--fy:-6px;--fr:-0.6deg;--fd:9s;--fdel:-2s"></div>
+      <div class="ly" data-ly="syringe" data-r="focus" data-d="850"></div>
+      <div class="ly float" data-ly="needle" data-r="focus" data-d="900" style="--fy:4px;--fd:11s;--fdel:-6s"></div>
+      <div class="ly" data-ly="ic_heart" data-r="pop" data-d="1150"></div>
+      <div class="ly" data-ly="ic_lungs" data-r="pop" data-d="1270"></div>
+      <div class="ly" data-ly="ic_bottle" data-r="pop" data-d="1390"></div>
+      <div class="ly" data-ly="ic_brain" data-r="pop" data-d="1510"></div>
+      <div class="ly" data-ly="ic_eye" data-r="pop" data-d="1630"></div>
+      <div class="ly" data-ly="ic_ear" data-r="pop" data-d="1750"></div>
+
+      <div class="ly" data-ly="panel" data-r="panel" data-d="0"></div>
+      <h1 class="t h2" data-r="words" data-d="200" style="left:106px;top:145px;font-size:42.5px;line-height:50px">Como é descoberta durante a gravidez?</h1>
+      <p class="t body" data-r="lines" data-d="450" style="left:109px;top:201px;font-size:26.5px;line-height:34px">
+        <span class="ln">A suspeita pode surgir durante exames pré-natais e</span>
+        <span class="ln">ultrassonografias. Existem exames de rastreamento, como</span>
+        <span class="ln">a análise de DNA fetal livre no sangue materno.</span>
+      </p>
+      <p class="t body" data-r="lines" data-d="700" style="left:109px;top:319px;font-size:26.5px;line-height:34px">
+        <span class="ln">Para confirmar o diagnóstico, podem ser utilizados exames</span>
+        <span class="ln">que analisam os cromossomos, como a amniocentese ou</span>
+        <span class="ln">a biópsia de vilosidades coriônicas.</span>
+      </p>
+      <div class="hline" data-r="wipe" data-o="left" data-d="950" style="left:108px;top:451px;width:794px"></div>
+      <h2 class="t h2" data-r="words" data-d="1050" style="left:106px;top:472px;font-size:46.5px;line-height:52px">Existe tratamento?</h2>
+      <p class="t body" data-r="lines" data-d="1250" style="left:109px;top:535px;font-size:26.5px;line-height:34px">
+        <span class="ln">Não existe um tratamento que retire ou ‘cure’ a alteração</span>
+        <span class="ln">cromossômica. O acompanhamento depende das necessidades</span>
+        <span class="ln">de cada pessoa.</span>
+      </p>
+      <h3 class="t h2 acc" data-r="words" data-d="1500" style="left:109px;top:649px;font-size:29px;line-height:34px">Podem ser necessários cuidados com:</h3>
+      <div class="list checks" data-r="checks" data-d="1700" data-stagger="95">
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:694px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:691px;font-size:26.5px;line-height:34px">coração;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:728px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:725px;font-size:26.5px;line-height:34px">respiração;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:763px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:760px;font-size:26.5px;line-height:34px">alimentação;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:797px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:794px;font-size:26.5px;line-height:34px">desenvolvimento;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:832px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:829px;font-size:26.5px;line-height:34px">audição e visão;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:866px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:863px;font-size:26.5px;line-height:34px">fisioterapia e outras terapias;</p></div>
+        <div class="it"><svg class="check" viewBox="0 0 32 32" style="left:109px;top:901px"><circle cx="16" cy="16" r="15"/><path d="M9.5 16.5l4.4 4.3 8.6-9"/></svg><p class="t body" style="left:166px;top:898px;font-size:26.5px;line-height:34px">acompanhamento com diferentes especialistas.</p></div>
+      </div>
+      <p class="t body" data-r="lines" data-d="2450" style="left:109px;top:951px;font-size:26.5px;line-height:34px">
+        <span class="ln">A abordagem é individualizada, porque a manifestação</span>
+        <span class="ln">da síndrome pode variar bastante.</span>
+      </p>
+    </section>
+
+    <!-- ===================== 7 · OBRIGADO ===================== -->
+    <section class="slide" data-n="7" aria-label="Obrigado pela atenção!">
+      <div class="halo breathe" data-r="glow" data-d="0" style="left:600px;top:60px;width:700px;height:700px"><div class="in"></div></div>
+      <div class="rays" data-r="glow" data-d="120" style="left:450px;top:-60px;width:1000px;height:1000px"><div class="in"></div></div>
+      <div class="rays rev" data-r="glow" data-d="260" style="left:550px;top:40px;width:800px;height:800px"><div class="in"></div></div>
+      <svg class="fx" viewBox="0 0 1920 1080">
+        <circle class="ring" data-r="draw" data-d="450" data-dur="2200" cx="950" cy="470" r="350" transform="rotate(-90 950 470)" filter="url(#glow)"/>
+      </svg>
+      <div class="ly" data-ly="pill" data-r="panel" data-d="700"></div>
+      <div class="ly float" data-ly="chromo" data-r="chromo" data-d="150" style="--fy:-7px;--fx:1px;--fr:0.5deg;--fd:8s"></div>
+      <div class="ly" data-ly="sub" data-r="pill" data-d="1750"></div>
+
+      <h1 class="t cover-word" data-r="chars" data-d="950" style="left:210px;top:694px;width:1490px;text-align:center;font-size:136px">
+        <span class="grad-navy">Obrigado</span> <span class="acc" style="font-size:0.78em">pela</span> <span class="grad-navy">atenção!</span>
+      </h1>
+      <div class="hair" data-r="wipe" data-o="right" data-d="1900" style="left:322px;top:884px;width:166px"></div>
+      <div class="hair r" data-r="wipe" data-o="left" data-d="1900" style="left:1432px;top:884px;width:166px"></div>
+      <div class="t pill-txt" data-r="fade" data-d="2000" style="left:510px;top:867px;width:900px;text-align:center;font-size:38px;line-height:1;font-stretch:70%">Síndrome de Edwards — Trissomia do Cromossomo 18</div>
+    </section>
+
+  </main>
+
+  <div id="lights" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
+  <div id="flare" aria-hidden="true"></div>
+  <div id="grain" aria-hidden="true"></div>
+  <div id="veil" aria-hidden="true"></div>
+
+  <div id="hint" role="status">Clique ou use <kbd>→</kbd> para avançar · <kbd>F</kbd> tela cheia</div>
+  <nav id="hud" aria-label="Navegação dos slides">
+    <div class="bar">
+      <button type="button" id="prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="seg" id="seg"></div>
+      <span class="num" id="num">01 / 07</span>
+      <button type="button" id="next" aria-label="Próximo slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button type="button" id="fs" aria-label="Tela cheia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+    </div>
+  </nav>
+
+  <div id="loader"><div class="track"><div class="fill"></div></div></div>
+</div>
+
+<script src="assets/manifest.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
