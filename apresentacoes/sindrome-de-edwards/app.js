@@ -12,6 +12,10 @@
   const MAN = window.MANIFEST || {};
   const params = new URLSearchParams(location.search);
   const STATIC = params.has('static');
+  // captura de vídeo (exportação para PowerPoint): relógio desacelerado e sem interface
+  const CAPTURE = params.has('capture');
+  const TS = +params.get('ts') || 1;
+  const clock = () => performance.now() * TS;
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ASSET = 'assets/';
 
@@ -19,7 +23,7 @@
   const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const sleep = ms => new Promise(r => setTimeout(r, ms / TS));
   const E = {
     outCubic: t => 1 - Math.pow(1 - t, 3),
     inOutCubic: t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
@@ -39,7 +43,7 @@
   const tweens = new Set();
   function tween(dur, fn, ease = E.inOutCubic) {
     return new Promise(resolve => {
-      const tw = { t0: performance.now(), dur, fn, ease, resolve };
+      const tw = { t0: clock(), dur, fn, ease, resolve };
       tweens.add(tw);
     });
   }
@@ -371,7 +375,7 @@ void main(){
     const api = {
       resize(w, h) {
         cssW = w; cssH = h;
-        rs = Math.min(1, 1680 / Math.max(w, 1)) * quality * Math.min(devicePixelRatio || 1, 1.25);
+        rs = CAPTURE ? 1 : Math.min(1, 1680 / Math.max(w, 1)) * quality * Math.min(devicePixelRatio || 1, 1.25);
         canvas.width = Math.max(2, Math.round(w * rs));
         canvas.height = Math.max(2, Math.round(h * rs));
         g.viewport(0, 0, canvas.width, canvas.height);
@@ -548,7 +552,7 @@ void main(){
     return a;
   }
   function later(sl, ms, fn) {
-    track(sl).timers.push(setTimeout(fn, ms));
+    track(sl).timers.push(setTimeout(fn, ms / TS));
   }
   const dur = (el, d) => +(el.dataset.dur || d);
 
@@ -894,7 +898,7 @@ void main(){
     addEventListener('mousemove', e => {
       V.tmx = (e.clientX / innerWidth - 0.5) * 2;
       V.tmy = (e.clientY / innerHeight - 0.5) * 2;
-      wake();
+      if (!CAPTURE) wake();
     });
     let tx0 = null;
     addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, { passive: true });
@@ -909,9 +913,10 @@ void main(){
 
   // ------------------------------------------------------------------ loop
   let gl = null;
-  let tPrev = performance.now();
+  let tPrev = clock();
   let frames = 0, slowFrames = 0, fpsT = 0;
-  function frame(now) {
+  function frame() {
+    const now = clock();
     const dt = Math.min(64, now - tPrev);
     tPrev = now;
     const t = now / 1000;
@@ -923,7 +928,7 @@ void main(){
     frames++;
     if (dt > 24) slowFrames++;
     fpsT += dt;
-    if (fpsT > 2500) {
+    if (fpsT > 2500 && !CAPTURE) {
       if (slowFrames / frames > 0.35) gl.degrade();
       frames = slowFrames = 0; fpsT = 0;
     }
@@ -985,8 +990,14 @@ void main(){
       return;
     }
 
-    requestAnimationFrame(frame);
     $('#loader').classList.add('done');
+    if (CAPTURE) {
+      app.classList.add('capture');
+      document.documentElement.dataset.loaded = '1';
+      await new Promise(r => { window.__deck.begin = r; });
+      tPrev = clock();
+    }
+    requestAnimationFrame(frame);
     // abertura: a luz acende e o microscópio entra em foco
     veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1600, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
     tween(1500, e => { V.fade = e; }, E.inOutSine);
@@ -995,8 +1006,10 @@ void main(){
     await sleep(500);
     enterSlide(slides[cur], 0);
     document.documentElement.dataset.ready = '1';
-    setTimeout(showHint, 2600);
-    wake();
+    if (!CAPTURE) {
+      setTimeout(showHint, 2600);
+      wake();
+    }
   }
 
   // ganchos para depuração/captura (?static&s=3)

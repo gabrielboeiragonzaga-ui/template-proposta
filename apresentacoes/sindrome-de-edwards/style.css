@@ -321,3 +321,8 @@ svg.fx .node { fill: #fff; }
 @media (prefers-reduced-motion: reduce) {
   #grain, #lights i, .rays > .in, .float > .in, .halo.breathe > .in { animation: none !important; }
 }
+
+/* exportação em vídeo: sem interface, sem cursor */
+#app.capture #hud, #app.capture #hint { display: none; }
+#app.capture { cursor: none; }
+#app.capture #loader { display: none; }
